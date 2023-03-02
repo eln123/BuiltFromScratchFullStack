@@ -12,6 +12,8 @@ app.use(morgan("dev"));
 const path = require("path");
 
 app.use(express.static(path.join(__dirname, "../public")));
+// bug: syntax error '<' in bundle.js
+// solution: make sure it's serving the public folder, not just ../public/index.html
 
 // parsing middleware
 
@@ -31,6 +33,8 @@ app.listen(port, function () {
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
+
+module.exports = app;
 
 // Other stuff to do:
 // - API routes
