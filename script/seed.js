@@ -14,10 +14,10 @@ async function seed() {
   // Creating Persons
   const persons = await Promise.all([
     Person.create({
-      name: "Hi",
+      name: "person1",
     }),
     Person.create({
-      name: "Hi#2",
+      name: "person2",
     }),
   ]);
 
