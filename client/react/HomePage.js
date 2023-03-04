@@ -9,22 +9,64 @@ const AuthForm = (props) => {
   const { name, displayName, handleSubmit, error } = props;
 
   return (
-    <div id="authFormContainer">
-      <form id="authForm" onSubmit={handleSubmit} name={name}>
-        <div id="authFormChild">
-          <label htmlFor="username">
-            <small>Username</small>
+    <div style={{ position: "absolute", height: "100vh", width: "100vw" }}>
+      <form
+        style={{
+          height: "40vh",
+          width: "20vw",
+          border: "2px solid red",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          fontSize: "24px",
+          position: "relative",
+          left: "50%",
+          transform: "translateX(-50%)",
+          top: "20%",
+        }}
+        onSubmit={handleSubmit}
+        name={name}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <label style={{ fontSize: "34px" }} htmlFor="username">
+            Username
           </label>
-          <input id="authFormInput" name="username" type="text" />
+          <input style={{ fontSize: "34px" }} name="username" type="text" />
         </div>
-        <div id="authFormChild">
-          <label htmlFor="password">
-            <small>Password</small>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            margin: "5px",
+            gap: "10px",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <label style={{ fontSize: "34px" }} htmlFor="password">
+            Password
           </label>
-          <input id="authFormInput" name="password" type="password" />
+          <input style={{ fontSize: "34px" }} name="password" type="password" />
         </div>
-        <div id="authFormChild">
-          <button id="loginButton" type="submit">
+        <div>
+          <button
+            style={{
+              fontSize: "38px",
+              padding: "10px",
+              width: "17vw",
+              marginTop: "20px",
+            }}
+            type="submit"
+          >
             {displayName}
           </button>
         </div>
