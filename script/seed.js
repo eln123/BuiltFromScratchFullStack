@@ -1,7 +1,7 @@
 "use strict";
 
 const db = require("../server/db/index");
-const Person = require("../server/db/models/index");
+const User = require("../server/db/models/index");
 
 /**
  * seed - this function clears the database, updates tables to
@@ -11,22 +11,24 @@ async function seed() {
   await db.sync({ force: true }); // clears db and matches models to tables
   console.log("db synced!");
 
-  // Creating Persons
-  const persons = await Promise.all([
-    Person.create({
-      name: "person1",
+  // Creating Users
+  const users = await Promise.all([
+    User.create({
+      username: "person1",
+      password: "HiHiHi",
     }),
-    Person.create({
-      name: "person2",
+    User.create({
+      username: "person2",
+      password: "ByeByeBye",
     }),
   ]);
 
-  console.log(`seeded ${persons.length} users`);
+  console.log(`seeded ${users.length} users`);
   console.log(`seeded successfully`);
   return {
-    persons: {
-      ethan: persons[0],
-      helen: persons[1],
+    users: {
+      person1: users[0],
+      person2: users[1],
     },
   };
 }
@@ -38,6 +40,7 @@ async function seed() {
   */
 async function runSeed() {
   console.log("seeding...");
+  console.log("Hiiiiiiiiiiiiii");
   try {
     await seed();
   } catch (err) {
